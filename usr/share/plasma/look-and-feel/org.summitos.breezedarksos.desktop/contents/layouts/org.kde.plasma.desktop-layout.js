@@ -24,6 +24,10 @@ if (panel.formFactor === "horizontal") {
 var kickoff = panel.addWidget("org.kde.plasma.kickoff")
 kickoff.currentConfigGroup = ["Shortcuts"]
 kickoff.writeConfig("global", "Alt+F1")
+kickoff.currentConfigGroup = ["General"];
+kickoff.writeConfig("customButtonImage", "org.summitos.hello");
+kickoff.writeConfig("useCustomButtonImage", "true");
+
 
 panel.addWidget("org.kde.plasma.pager")
 
