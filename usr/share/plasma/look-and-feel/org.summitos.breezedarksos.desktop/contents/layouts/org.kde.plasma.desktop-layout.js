@@ -24,9 +24,9 @@ if (panel.formFactor === "horizontal") {
 var kickoff = panel.addWidget("org.kde.plasma.kickoff")
 kickoff.currentConfigGroup = ["Shortcuts"]
 kickoff.writeConfig("global", "Alt+F1")
-kickoff.currentConfigGroup = ["General"];
-kickoff.writeConfig("customButtonImage", "org.summitos.hello");
-kickoff.writeConfig("useCustomButtonImage", "true");
+kickoff.currentConfigGroup = ["General"]
+kickoff.writeConfig("customButtonImage", "org.summitos.hello")
+kickoff.writeConfig("useCustomButtonImage", "true")
 
 
 panel.addWidget("org.kde.plasma.pager")
@@ -34,7 +34,6 @@ panel.addWidget("org.kde.plasma.pager")
 let taskBar = panel.addWidget("org.kde.plasma.icontasks")
 taskBar.currentConfigGroup = ["General"]
 taskBar.writeConfig("launchers",["preferred://filemanager","applications:org.kde.konsole.desktop","preferred://browser"])
-
 panel.addWidget("org.kde.plasma.marginsseparator")
 
 /* Next up is determining whether to add the Input Method Panel
