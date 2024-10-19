@@ -1,0 +1,18 @@
+[Desktop Entry]
+Comment=
+Name=Breeze Dark SummitOS
+X-KDE-PluginInfo-Author=SummitOS
+X-KDE-PluginInfo-Category=Plasma Look And Feel
+X-KDE-PluginInfo-Email=info@endeavouros.com
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-License=GPL 2+
+X-KDE-PluginInfo-Name=org.summitos.breezedarksos.desktop
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=www.summitos.github.io
+X-KDE-ServiceTypes=Plasma/LookAndFeel
+
+[Wallpaper]
+defaultWallpaperTheme=SummitOS
+defaultFileSuffix=.png
+defaultWidth=3840
+defaultHeight=2160

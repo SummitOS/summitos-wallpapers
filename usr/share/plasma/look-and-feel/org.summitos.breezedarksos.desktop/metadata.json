@@ -1,0 +1,11 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Category": "",
+        "Description": "Breeze Dark SummitOS",
+        "Id": "org.summitos.breezedarksos.desktop",
+        "License": "GPLv2+",
+        "Name": "Breeze Dark SummitOS",
+        "Website": "https://www.kde.org"
+    }
+}
