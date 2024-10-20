@@ -21,10 +21,7 @@ library=org.kde.breeze
 theme=Breeze
 
 [plasmarc][Theme]
-name=breeze
-
-[Desktop]
-LauncherIcon=org.summitos.hello
+name=breeze-dark
 
 [Wallpaper]
 Image=SummitOS
