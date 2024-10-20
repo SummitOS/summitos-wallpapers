@@ -1,15 +1,14 @@
-var panel = new Panel
-var panelScreen = panel.screen
+var panel = new Panel();
+var panelScreen = panel.screen;
 
-// No need to set panel.location as ShellCorona::addPanel will automatically pick one available edge
+// Automatyczne wybieranie krawędzi dla panelu
+// Panel automatycznie ustawi się na jednej z dostępnych krawędzi
 
-// For an Icons-Only Task Manager on the bottom, *3 is too much, *2 is too little
-// Round down to next highest even number since the Panel size widget only displays
-// even numbers
-panel.height = 2 * Math.floor(gridUnit * 2.5 / 2)
+// Ustawienie wysokości panelu
+panel.height = 2 * Math.floor(gridUnit * 2.5 / 2);
 
-// Restrict horizontal panel to a maximum size of a 21:9 monitor
-const maximumAspectRatio = 21/9;
+// Ograniczenie poziomego panelu do maksymalnego rozmiaru monitora o proporcji 21:9
+const maximumAspectRatio = 21 / 9;
 if (panel.formFactor === "horizontal") {
     const geo = screenGeometry(panelScreen);
     const maximumWidth = Math.ceil(geo.height * maximumAspectRatio);
@@ -21,64 +20,34 @@ if (panel.formFactor === "horizontal") {
     }
 }
 
-var kickoff = panel.addWidget("org.kde.plasma.kickoff")
-kickoff.currentConfigGroup = ["Shortcuts"]
-kickoff.writeConfig("global", "Alt+F1")
-kickoff.currentConfigGroup = ["General"]
-kickoff.writeConfig("customButtonImage", "org.summitos.hello")
-kickoff.writeConfig("useCustomButtonImage", "true")
+// Dodanie uruchamiacza Kickoff i ustawienie niestandardowej ikony
+var kickoff = panel.addWidget("org.kde.plasma.kickoff");
+kickoff.currentConfigGroup = ["Shortcuts"];
+kickoff.writeConfig("global", "Alt+F1");  // Skrót do uruchamiacza
 
+// Ustawienie niestandardowej ikony dla Kickoff
+kickoff.currentConfigGroup = ["General"];
+kickoff.writeConfig("useCustomButtonImage", "true");
+kickoff.writeConfig("customButtonImage", "org.summitos.hello"); // Ścieżka do niestandardowej ikony
 
-panel.addWidget("org.kde.plasma.pager")
+// Dodanie widgetów na panelu
+panel.addWidget("org.kde.plasma.pager");
 
-let taskBar = panel.addWidget("org.kde.plasma.icontasks")
-taskBar.currentConfigGroup = ["General"]
-taskBar.writeConfig("launchers",["preferred://filemanager","applications:org.kde.konsole.desktop","preferred://browser"])
-panel.addWidget("org.kde.plasma.marginsseparator")
+let taskBar = panel.addWidget("org.kde.plasma.icontasks");
+taskBar.currentConfigGroup = ["General"];
+taskBar.writeConfig("launchers", ["preferred://filemanager", "applications:org.kde.konsole.desktop", "preferred://browser"]);
 
-/* Next up is determining whether to add the Input Method Panel
- * widget to the panel or not. This is done based on whether
- * the system locale's language id is a member of the following
- * white list of languages which are known to pull in one of
- * our supported IME backends when chosen during installation
- * of common distributions. */
+panel.addWidget("org.kde.plasma.marginsseparator");
 
-var langIds = ["as",    // Assamese
-               "bn",    // Bengali
-               "bo",    // Tibetan
-               "brx",   // Bodo
-               "doi",   // Dogri
-               "gu",    // Gujarati
-               "hi",    // Hindi
-               "ja",    // Japanese
-               "kn",    // Kannada
-               "ko",    // Korean
-               "kok",   // Konkani
-               "ks",    // Kashmiri
-               "lep",   // Lepcha
-               "mai",   // Maithili
-               "ml",    // Malayalam
-               "mni",   // Manipuri
-               "mr",    // Marathi
-               "ne",    // Nepali
-               "or",    // Odia
-               "pa",    // Punjabi
-               "sa",    // Sanskrit
-               "sat",   // Santali
-               "sd",    // Sindhi
-               "si",    // Sinhala
-               "ta",    // Tamil
-               "te",    // Telugu
-               "th",    // Thai
-               "ur",    // Urdu
-               "vi",    // Vietnamese
-               "zh_CN", // Simplified Chinese
-               "zh_TW"] // Traditional Chinese
+// Lista języków, które wyzwalają dodanie widgetu Input Method
+var langIds = ["as", "bn", "bo", "brx", "doi", "gu", "hi", "ja", "kn", "ko", "kok", "ks", "lep", "mai", "ml", "mni", "mr", "ne", "or", "pa", "sa", "sat", "sd", "si", "ta", "te", "th", "ur", "vi", "zh_CN", "zh_TW"];
 
 if (langIds.indexOf(languageId) != -1) {
     panel.addWidget("org.kde.plasma.kimpanel");
 }
 
-panel.addWidget("org.kde.plasma.systemtray")
-panel.addWidget("org.kde.plasma.digitalclock")
-panel.addWidget("org.kde.plasma.showdesktop")
+// Dodanie pozostałych widgetów
+panel.addWidget("org.kde.plasma.systemtray");
+panel.addWidget("org.kde.plasma.digitalclock");
+panel.addWidget("org.kde.plasma.showdesktop");
+
